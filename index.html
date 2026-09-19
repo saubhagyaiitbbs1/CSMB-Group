@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSMB Group | Computational Soft Matter & Biophysics</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7fbfb;
+            color: #173b45;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            border-bottom: 1px solid #dce9e9;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #073b4c;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #24545f;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #25bfc0;
+        }
+
+        /* Hero */
+        .hero {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 330px 1fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .photo-box {
+            background: white;
+            border: 1px solid #bcd8d8;
+            border-radius: 12px;
+            padding: 10px;
+        }
+
+        .photo-placeholder {
+            height: 360px;
+            border-radius: 7px;
+            background: linear-gradient(135deg, #dceeee, #f5fbfb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c9297;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .label {
+            display: inline-block;
+            border: 1px solid #61d0cf;
+            border-radius: 25px;
+            padding: 5px 15px;
+            color: #199c9d;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 64px;
+            font-weight: normal;
+            line-height: 1.05;
+            color: #063c48;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 19px;
+            color: #35bfc0;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .buttons a {
+            display: inline-block;
+            padding: 9px 20px;
+            border: 1px solid #a9d6d7;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #174b57;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .buttons a:hover {
+            background: #eafafa;
+        }
+
+        /* About */
+        .about {
+            max-width: 1200px;
+            margin: 30px auto 70px;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 60px;
+        }
+
+        .about-text {
+            font-size: 18px;
+            color: #285865;
+        }
+
+        .research-box {
+            background: #f0edff;
+            border-left: 4px solid #9a91dc;
+            padding: 25px;
+        }
+
+        .research-box h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .research-box ul {
+            padding-left: 20px;
+        }
+
+        .research-box li {
+            margin-bottom: 9px;
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+
+        .section-title {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 40px;
+            font-weight: normal;
+            color: #073b4c;
+            margin-bottom: 25px;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #d5e5e5;
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .card h3 {
+            color: #147d86;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #50717a;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 100px;
+            background: #073b4c;
+            color: white;
+            padding: 45px 7%;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            color: #c7dddd;
+        }
+
+        /* Mobile */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 46px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="logo">CSMB GROUP</div>
+
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#people">People</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- Hero -->
+<div class="hero">
+
+    <div class="photo-box">
+        <div class="photo-placeholder">
+            Dr. Jiarul Midya<br>
+            Principal Investigator
+        </div>
+    </div>
+
+    <div>
+
+        <div class="label">
+            PRINCIPAL INVESTIGATOR
+        </div>
+
+        <h1>Dr. Jiarul Midya</h1>
+
+        <div class="subtitle">
+            Computational Soft Matter &amp; Biophysics
+        </div>
+
+        <div class="buttons">
+            <a href="#" target="_blank">Google Scholar</a>
+            <a href="#" target="_blank">Faculty Page</a>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- About -->
+<div class="about" id="about">
+
+    <div class="about-text">
+
+        <p>
+            The <strong>CSMB Group</strong> at IIT Bhubaneswar
+            investigates complex soft and biological systems using
+            computational and theoretical approaches.
+        </p>
+
+        <br>
+
+        <p>
+            Our research explores the physical principles governing
+            nonequilibrium soft matter, active systems, biomolecular
+            organization, and biological materials across different
+            length and time scales.
+        </p>
+
+    </div>
+
+
+    <div class="research-box">
+
+        <h2>Current Research Directions</h2>
+
+        <ul>
+            <li>Computational Soft Matter</li>
+            <li>Active Matter</li>
+            <li>Computational Biophysics</li>
+            <li>Biomolecular Condensates</li>
+            <li>Membrane &amp; Vesicle Dynamics</li>
+            <li>Cytoskeletal Networks</li>
+        </ul>
+
+    </div>
+
+</div>
+
+
+<!-- Research -->
+<section id="research">
+
+    <h2 class="section-title">
+        Research
+    </h2>
+
+    <div class="research-grid">
+
+        <div class="card">
+            <h3>Soft Matter</h3>
+            <p>
+                Computational investigation of complex soft materials,
+                collective behavior, phase transitions and emergent
+                structures.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Active Matter</h3>
+            <p>
+                Study of nonequilibrium systems, active particles,
+                collective dynamics and pattern formation.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Biophysics</h3>
+            <p>
+                Computational approaches to understand physical
+                mechanisms underlying biological organization.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Biomolecular Condensates</h3>
+            <p>
+                Simulation of phase separation and organization of
+                biomolecular condensates in complex environments.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Membrane Dynamics</h3>
+            <p>
+                Computational studies of membranes, vesicles,
+                membrane remodeling and molecular interactions.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Cytoskeletal Systems</h3>
+            <p>
+                Investigation of polymer networks, cytoskeletal
+                organization and their interactions with biological
+                condensates.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- People -->
+<section id="people">
+
+    <h2 class="section-title">
+        People
+    </h2>
+
+    <div class="card">
+
+        <h3>Principal Investigator</h3>
+
+        <p>
+            <strong>Dr. Jiarul Midya</strong><br>
+            IIT Bhubaneswar
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Publications -->
+<section id="publications">
+
+    <h2 class="section-title">
+        Publications
+    </h2>
+
+    <div class="card">
+
+        <p>
+            Research publications, preprints and related scientific
+            contributions will be listed here.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Contact -->
+<section id="contact">
+
+    <h2 class="section-title">
+        Contact
+    </h2>
+
+    <div class="card">
+
+        <h3>CSMB Group</h3>
+
+        <p>
+            School of Basic Sciences<br>
+            Indian Institute of Technology Bhubaneswar<br>
+            Odisha, India
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>CSMB Group</h3>
+            <p>
+                Computational Soft Matter &amp; Biophysics
+            </p>
+        </div>
+
+        <div>
+            <h3>Research</h3>
+            <p>
+                Soft Matter · Active Matter · Biophysics
+            </p>
+        </div>
+
+        <div>
+            <h3>IIT Bhubaneswar</h3>
+            <p>
+                School of Basic Sciences
+            </p>
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
